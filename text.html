@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style: none}
+        a{text-underline: none;text-decoration: none;}
+        .f-left{ float: left;  }
+        .f-right{ float: right;  }
+        .clear:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        #img-wrap{
+            position: relative;
+
+            left:50px;
+            top:50px;
+        }
+        .iw-img{
+            width:300px;
+            height:350px;
+            /*background: #11ff0d;*/
+        }
+        .iw-img .litter{
+            position: relative;
+            width: 100%;
+            height:300px;
+            background: #ff0716;
+            text-align: center;
+            line-height: 300px;
+            overflow: hidden;
+        }
+
+
+
+        .iw-img .litter .cover{
+            display:none;
+            position: absolute;
+            width:120px;
+            height:120px;
+            background: url("images/cover.png");
+            cursor: all-scroll;
+        }
+
+
+        .iw-img .litter img{
+            /*width:100%;*/
+            height:100%;
+        }
+
+
+        .iw-img .li-img{
+            width:100%;
+            height:50px;
+            background: #ffc60c;
+        }
+        .iw-img .li-img ul{
+            width:150px;
+            height: 40px;
+            padding:5px 0;
+            margin:0 auto;
+            background: #a165ff;
+        }
+        .iw-img .li-img ul li{
+            float: left;
+            width:40px;
+            height:40px;
+            margin:0 5px;
+            background: #2efc99;
+        }
+        .big{
+            display: none;
+            position: absolute;
+            top:0;
+            left:310px;
+            width:300px;
+            height:300px;
+            background: url("images/IMG3.jpg") no-repeat center;
+            background-position: -10px -60px;
+            overflow: hidden;
+            z-index:999;
+        }
+    </style>
+</head>
+<body>
+<div id="img-wrap" class="f-left">
+    <div class="iw-img">
+        <div class="litter">
+                <img class="litimg" src="images/IMG3.jpg" alt="产品图片" >
+                <div class="cover"></div>
+        </div>
+        <div class="li-img">
+            <ul>
+                <li><img src="images/IMG1.jpg" alt="产品图片" width="40" height="40"></li>
+                <li><img src="images/IMG2.jpg" alt="产品图片" width="40" height="40"></li>
+                <li><img src="images/IMG3.jpg" alt="产品图片" width="40" height="40"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="big"></div>
+</div>
+<script>
+    var $cover=$(".cover"),
+        $litter=$(".litter"),
+        $litimg=$(".litimg"),
+        $lIimg=$(".li-img"),
+        $img=$lIimg.find("ul li img"),
+        $big=$(".big");
+    var LXY=$litter.offset();
+    var Lleft=LXY.left;
+    var Ltop=LXY.top;
+    var Mwidth=$litimg.width();
+    var Mheight=$litimg.height();
+    var Lwidth=$litter.width();
+    var Lheight=$litter.height();
+
+    var lx=(Lwidth-120-Mwidth)/2,
+        ly=(Lheight-120-Mheight)/2;
+
+    $litter.mouseover(function (e) {
+        e=e||window.event;
+        $big.show();
+        var sx=e.pageX;
+        var sy=e.pageY;
+
+        $cover.show();
+
+        var Cleft=sx-Lleft-ly-120;
+        var Ctop=sy-Ltop-ly-120;
+
+        Scale(Cleft,Ctop);
+
+        document.onmousemove=function (e) {
+            e=e||window.event;
+            sx=e.pageX;
+            sy=e.pageY;
+
+            Cleft=sx-Lleft-ly-120;
+            Ctop=sy-Ltop-ly-120;
+
+            Scale(Cleft,Ctop);
+
+            var cXY=$cover.position();
+            var bleft= cXY.left*900/300,
+                btop=cXY.top*900/300;
+            $big.css({
+                "background-position":"-"+(bleft)+"px  -"+(btop)+"px"
+            });
+
+        };
+    });
+    $litter.mouseout(function () {
+        $cover.hide();
+        $big.hide();
+        document.onmousemove=null;
+        $cover.mouseout=null;
+    });
+
+    $img.mouseover(function () {
+       var SRC=$(this).attr("src");
+        $litimg.attr("src",SRC);
+        $big.css("background","url("+SRC+")");
+        console.log(SRC);
+    });
+    function Scale(Cleft,Ctop) {
+        $cover.css({
+            "left":( Cleft>Mwidth-120 ? Lwidth/2+Mwidth/2-120 : Math.max(lx+60,Cleft))+"px",
+            "top":( Ctop>Mheight-120 ? Lheight/2+Mheight/2-120 : Math.max(ly+60,Ctop))+"px"
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>朱顺的简历</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_455286_0uy9otgfe21vpldi.css" type="text/css">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+        *{margin:0; padding:0;}
+        li{list-style: none}
+        a{text-underline: none;text-decoration: none;}
+        .f-left{ float: left;  }
+        .f-right{ float: right;  }
+        .clear:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .first-l{
+            display: inline-block;
+            width:80px;
+            font-size:15px;
+            color: #999;
+        }
+        .second-l{
+            margin:0 20px 0 0;
+        }
+        #box{
+            width:800px;
+            height:950px;
+            margin:20px auto;
+            /*background: #eee;*/
+        }
+        .top{
+            width:100%;
+            height:450px;
+            /*background: #19d1ff;*/
+        }
+        /*图片展示区 开始*/
+        #img-wrap{
+            position: relative;
+        }
+        .iw-img{
+            width:300px;
+            height:350px;
+            /*background: #11ff0d;*/
+        }
+        .iw-img .litter{
+            width: 100%;
+            height:300px;
+            background: #ff0716;
+        }
+        .iw-img .litter .cover{
+            display:none;
+            position: absolute;
+            width:120px;
+            height:120px;
+            background: url("images/cover.png");
+            cursor: all-scroll;
+        }
+        .iw-img .litter img{
+            width:100%;
+        }
+        .iw-img .li-img{
+            width:100%;
+            height:50px;
+            /*background: #ffc60c;*/
+        }
+        .iw-img .li-img ul{
+            width:200px;
+            height: 40px;
+            padding:5px 0;
+            margin:0 auto;
+            /*background: #a165ff;*/
+        }
+        .iw-img .li-img ul li{
+            float: left;
+            width:40px;
+            height:40px;
+            margin:0 13px;
+            /*background: #2efc99;*/
+        }
+       .big{
+           display: none;
+           position: absolute;
+           top:0;
+           left:310px;
+           width:300px;
+           height:300px;
+           background: url("images/IMG3.jpg") no-repeat center;
+           background-position: -10px -60px;
+           overflow: hidden;
+           z-index:999;
+       }
+        /*图片展示区 结束*/
+        /*个人基础信息 开始*/
+        .detail{
+            width:480px;
+            height:350px;
+            /*background: #a4b5ff;*/
+        }
+        .detail ul li{
+            padding:5px 0;
+        }
+        .detail .title{
+            font-size:16px;
+            font-weight: 600;
+        }
+        .detail .title span{
+            font-size:23px;
+        }
+        .detail .b-price{
+            color: #333;
+        } 
+        .detail .price{
+            font-size:20px;
+            color: #FF0036;
+        }
+        .detail .yun_pri{
+            font-size:14px;
+            color:#333;
+        }
+        .detail  .numb{
+            font-size:14px;
+            color: #878787;
+        }
+        .detail  .numb input{
+            width: 30px;
+            height: 20px;
+            border: 1px solid #a7a6ac;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+        .detail .numb .kuchun{
+            margin:0 5px 0 10px;
+        }
+        .detail .numb .tip{
+            font-size:12px;
+            color: #FF0036;
+        }
+        .jineng .j-list{
+            width:85%;
+            margin-left:65px;
+        }
+        .jineng .j-list span{
+            display: inline-block;
+            width:80px;
+        }
+        .jineng  ul li{
+            line-height:27px;
+        }
+        .jineng  ul li .j-list .progress{
+            display: inline-block;
+            width:150px;
+            height:12px;
+            margin-left:5px;
+            border:1px solid red;
+            vertical-align: middle;
+            -webkit-border-radius:6px;
+            -moz-border-radius:6px;
+            border-radius:50%;
+            background: #fff;
+        }
+        .jineng  ul li .j-list .progress .bar{
+            height:12px;
+            -webkit-border-radius:6px;
+            -moz-border-radius:6px;
+            border-radius:6px;
+            background: #FF0036;
+        }
+        .jineng  ul li .j-list .progress .js-b{
+            width:113px;
+        }
+        .jineng  ul li .j-list .progress .jq-b{
+            width:105px;
+        }
+        .jineng  ul li .j-list .progress .hc-b{
+            width:128px;
+        }
+        .ba-wrap{
+            position: relative;
+            width:100%;
+            height:100px;
+            /*background: #ffbab9;*/
+        }
+        .ba-wrap .btn{
+            width:380px;
+            height:40px;
+            line-height:40px;
+            margin:30px 10px;
+            text-align: center;
+            /*background: #ffc60c;*/
+        }
+        .ba-wrap .btn .t-lr{
+            float: left;
+            width:180px;
+            height:100%;
+            border:1px solid #FF0036;
+            cursor: pointer;
+        }
+        .ba-wrap .btn .btn-l{
+            margin-right:14px;
+            /*background: #ffeded;*/
+            color: #FF0036;
+        }
+        .ba-wrap .btn .btn-r{
+            background: #FF0036;
+            color: #fff;
+        }
+        .ba-wrap .addr{
+            margin-top:22px;
+        }
+        .ba-wrap .addr p{
+            margin-left:5px;
+            color: #333;
+            line-height: 28px;
+        }
+        .ba-wrap .addr p .add-1{
+            display: block;
+        }
+        .ba-wrap .addr p .add-2{
+            margin-left:70px;
+            font-size:14px;
+            color: #FF0036;
+        }
+        .ba-wrap .Tip{
+            display: none;
+            position: absolute;
+            top: -150px;
+            left:285px;
+            width: 250px;
+            height:150px;
+            color: #fff;
+            text-align: center;
+            background: rgba(8, 7, 13, 0.6);
+        }
+        .ba-wrap .Tip .shut{
+            color: #fff;
+            cursor: pointer;
+        }
+        .ba-wrap .Tip .Tip1{
+            display: none;
+            width:100%;
+            padding:30px 0 0;
+        }
+        .ba-wrap .Tip  p{
+            margin:20px 0;
+        }
+        .ba-wrap .Tip .Tip2{
+            display: none;
+            width:100%;
+            padding:30px 0 0;
+        }
+        /*个人基础信息 结束*/
+        /*个人案例项目展示区 开始*/
+        .footer{
+            width:100%;
+            height:500px;
+            /*background: #6eff1d;*/
+        }
+        .footer .nav{
+            width:260px;
+            height:50px;
+            margin:0 auto;
+            /*background: #dcff37;*/
+        }
+        .footer .nav div{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width:120px;
+            height:50px;
+            margin:0 5px;
+            border:1px solid #000;
+            border-bottom:none;
+            line-height:50px;
+            text-align: center;
+            font-size:20px;
+            font-weight:bold;
+            /*background: #fff595;*/
+            cursor: pointer;
+        }
+        .footer .nav div:hover{
+            color: #ff0716;
+        }
+        .footer .nav div.on{
+            color: #ff0716;
+            border:1px solid #FF0036;
+            border-bottom: none;
+        }
+        .footer .lr{
+            position: relative;
+            border-top:1px solid #FF0036;
+        }
+        .footer .lr-d{
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:450px;
+            /*background: #07fff3;*/
+        }
+        .footer .l_det{
+            /*display: none;*/
+        }
+        .footer .l_det .l-dul{
+            width:100%;
+        }
+        .footer .l_det h3{
+            margin:5px;
+        }
+        .footer .l_det .l-dul li{
+            float: left;
+            width:170px;
+            height:30px;
+            line-height: 30px;
+            margin:5px 15px;
+            /*background: #c6e5ff;*/
+        }
+        .footer .l_det .l-dul li:nth-last-child(1),
+        .footer .l_det .l-dul li:nth-last-child(2){
+            width:350px;
+            text-align: center;
+        }
+        .footer .l_det .zs-ji{
+            margin-left:50px;
+        }
+        .footer .l_det .zs-ji li{
+            margin-bottom:7px;
+        }
+        .footer .l_det .demo{
+            margin-left:50px;
+        }
+        .footer .l_det .demo p{
+            margin:10px;
+        }
+        .footer .l_det .demo p a{
+            color: #ff0716;
+        }
+        .footer .r_det{
+            display: none;
+        }
+        .footer .r_det .r-top{
+            width:100%;
+            height:100px;
+            border-bottom: 1px solid #e3e3e3;
+            /*background: #e3e3e3;*/
+        }
+        .r-top .r-t-right{
+            box-sizing: border-box;
+            width:150px;
+            height:100px;
+            padding:10px;
+            text-align: center;
+            /*background: bisque;*/
+        }
+        .r-top .r-t-right .t-p1{
+            font-size:12px;
+            color: #404040;
+        }
+        .r-top .r-t-right .t-p2{
+            color: #fffd3b;
+        }
+        .r-top .r-t-right strong{
+            font-size:32px;
+            color: #f60;
+        }
+        .r-top .r-t-left{
+            width:600px;
+            height:100px;
+            /*background: forestgreen;*/
+        }
+        .r-top .r-t-left ul{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .r-top .r-t-left ul li{
+            /*width:120px;*/
+            height:24px;
+            text-align: center;
+            line-height:24px;
+            margin:10px;
+            color: #FF0036;
+            border:1px solid #ffd7dd;
+            -webkit-box-shadow:2px 2px 1px #f2f2f2;
+            -moz-box-shadow: 2px 2px 1px #f2f2f2;
+            box-shadow: 2px 2px 1px #f2f2f2;
+        }
+        .r-bottom{
+
+        }
+        .r-bottom ul li{
+            width:100%;
+            height:115px;
+            border-bottom: 1px solid #e3e3e3;
+        }
+        .r-bottom ul li .miaoshu{
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width:550px;
+            height:115px;
+            padding:20px 10px;
+        }
+        .r-bottom ul li .name{
+            width:250px;
+            height:115px;
+            line-height:150px;
+            text-align: center;
+        }
+        /*个人案例项目展示区 结束*/
+    </style>
+</head>
+<body>
+<div id="box">
+   <div class="top ">
+       <div class="clear">
+           <!--图片展示区 开始-->
+           <div id="img-wrap" class="f-left">
+               <div class="iw-img">
+                   <div class="litter">
+                       <img class="litimg" src="images/IMG3.jpg" alt="产品图片" >
+                       <div class="cover"></div>
+                   </div>
+                   <div class="li-img">
+                       <ul>
+                           <li><img src="images/IMG1.jpg" alt="产品图片" width="40" height="40"></li>
+                           <li><img src="images/IMG2.jpg" alt="产品图片" width="40" height="40"></li>
+                           <li><img src="images/IMG3.jpg" alt="产品图片" width="40" height="40"></li>
+                       </ul>
+                   </div>
+               </div>
+               <div class="big"></div>
+           </div>
+           <!--图片展示区 结束-->
+           <!--个人基础信息 开始-->
+           <div class="detail f-right">
+               <ul>
+                   <li class="title">2017年<span>最勤奋</span>的 <span>前端工程师</span></li>
+                   <li><span style="font-size: 14px;color: #ff0716;">达人推荐  欢迎抢购</span></li>
+                   <li class="b-price"><span class="first-l">价格</span>￥<del>12k</del></li>
+                   <li class="price"><span class="first-l">促销价</span>￥<span class="pri-rgt">8k-12k</span></li>
+                   <li class="yun_pri"><span class="first-l">运费 </span> <sapn>六安市 至 全国 快递: 0.00元</sapn></li>
+                   <li class="jineng">
+                       <ul>
+                           <li>
+                               <span class="first-l">精通技能:</span>
+                               <div class="j-list">
+                                   <span>Javascript</span>
+                                   <div class="progress"><div class="bar js-b"></div></div><br>
+                                   <span>JQuery</span>
+                                   <div class="progress"><div class="bar jq-b"></div></div><br>
+                                   <span>H5 css3</span>
+                                   <div class="progress"><div class="bar hc-b"></div></div>
+                               </div>
+                           </li>
+                       </ul>
+                   </li>
+                   <li class="numb"><span class="first-l">数量</span><input type="text" value="1"><span> 件</span><span class="kuchun">库存1件</span><span class="tip">(全球限量版)</span></li>
+               </ul>
+           </div>
+       </div>
+       <div class="ba-wrap clear">
+           <div class="addr f-left">
+               <p><span class="add-1">产品地址:</span><span class="add-2">美丽的</span>安徽省 六安市 裕安区 月亮岛 皖西学院</p>
+           </div>
+           <div class="btn f-right">
+               <div class="btn-l t-lr">立即购买</div>
+               <div class="btn-r t-lr">加入购物车</div>
+           </div>
+           <div class="Tip">
+               <i class="iconfont icon-guanbi f-right shut" style="color: #fff;"></i>
+               <div class="Tip1">
+                   <h3>亲~ 感谢您的购买:</h3>
+                   <p> 客服热线:&nbsp <span>15556056253</span> </p>
+                   <p>客服邮箱: <span>940805675@qq.com</span></p>
+               </div>
+               <div class="Tip2">
+                   <h3>心动不如行动哦...</h3>
+                   <p>了解更多:<span>15556056253</span> </p>
+                   <p>客服邮箱: <span>940805675@qq.com</span></p>
+               </div>
+           </div>
+       </div>
+       <!--个人基础信息 结束-->
+   </div>
+    <!--个人案例项目展示区 开始-->
+    <div class="footer">
+        <div class="nav clear">
+            <div class="left on f-left">商品详情</div>
+            <div class="right f-right">累计评价</div>
+        </div>
+        <div class="lr">
+            <div class="l_det lr-d">
+                <h3>个人基本信息:</h3>
+                <ul class="l-dul clear">
+                    <li><span class="first-l">姓名:</span><span class="second-l" style="color: #ff0716;">朱顺</span></li>
+                    <li><span class="first-l">性别:</span><span class="second-l">男</span></li>
+                    <li> <span class="first-l">民族:</span><span class="second-l">汉</span></li>
+                    <li><span class="first-l">年龄:</span><span class="second-l">23</span></li>
+                    <li><span class="first-l">生日:</span><span class="second-l" >1994.2</span></li>
+                    <li><span class="first-l">学历:</span><span class="second-l" style="color: #ff0716;">本科</span></li>
+                    <li> <span class="first-l">学校:</span><span class="second-l">皖西学院</span></li>
+                    <li><span class="first-l">年级:</span><span class="second-l">大四</span></li>
+                    <li><span class="first-l">联系电话:</span><span class="second-l" style="color: #ff0716;">15556056253</span></li>
+                    <li><span class="first-l">邮箱地址:</span><span class="second-l" style="color: #ff0716;">940805675@qq.com</span></li>
+                </ul>
+                <h3>知识能力:</h3>
+                <ul class="zs-ji">
+                    <li><span>（1）、</span>精通原生JavaScript 、JQuery 、HTML 、CSS 、H5、CSS3、 Ajax、Json、Jsonp</li>
+                    <li><span>（2）、</span>熟悉框架vue</li>
+                    <li><span>（3）、</span>了解框架Angular、React</li>
+                    <li><span>（4）、</span>熟悉 Java、php、C语言（获得国家二级C语言证书）</li>
+                    <li><span>（5）、</span>对web标准有良好的认识，熟悉W3C标准，有严谨的代码风格，熟悉各大浏览器的兼容性问题</li>
+                    <li><span>（6）、</span>会用GitHub</li>
+                </ul>
+                <h3 style="color: #121eff;">项目展示:</h3>
+                <div class="demo">
+                    <p>我做过的响应式网页，可兼容移动端 &nbsp;&nbsp;&nbsp;<a href="https://zhushun.github.io/xianshiwangye/" target="_blank" title="点击跳转">兰途科技</a>(点击浏览)</p>
+                    <p>我做的网页音乐播放器，采用ajax调用易源平台的QQ音乐接口 &nbsp;&nbsp;&nbsp;<a href="https://zhushun.github.io/Mymusic/" target="_blank" title="点击跳转">音乐播放器</a>(点击浏览)</p>
+                </div>
+            </div>
+            <div class="r_det lr-d">
+                <div class="r-top clear">
+                    <div class="r-t-right f-left">
+                        <p class="t-p1">与描述相符</p>
+                        <strong>4.9</strong>
+                        <p class="t-p2">
+                            <i class="iconfont icon-xing1"></i>
+                            <i class="iconfont icon-xing1"></i>
+                            <i class="iconfont icon-xing1"></i>
+                            <i class="iconfont icon-xing1"></i>
+                            <i class="iconfont icon-xing1"></i>
+                        </p>
+                    </div>
+                    <div class="r-t-left f-right">
+                        <ul>
+                            <li>技术不错(163)</li>
+                            <li>人品很好(34)</li>
+                            <li>经济实惠(102)</li>
+                            <li>勤劳(266)</li>
+                            <li>积极奋进(132)</li>
+                            <li>热爱前端(682)</li>
+                            <li>热爱祖国(380)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="r-bottom">
+                    <ul>
+                        <li class="clear">
+                            <div class="miaoshu f-left">
+                                善于管理时间，抗压能力强，喜欢工作带来的成就感。热爱前端技术，实时了解最新前端知识。有较强的抗压能力，在繁忙的工作中能坚持锻炼身体。
+                            </div>
+                            <div class="name f-right">
+                                w***第（匿名）
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <div class="miaoshu f-left">
+                                善于与人交流，责任心强，快速学习能力佳。
+                            </div>
+                            <div class="name f-right">
+                                z***4（匿名
+                            </div>
+                        </li>
+                        <li class="clear">
+                            <div class="miaoshu f-left">
+                                为人随和，喜欢与人交往，语言表达能力强。对工作不马虎，责任心强，有很好的自学能力和快速学习的能力。
+                            </div>
+                            <div class="name f-right">
+                                轩***佑（匿名）
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--个人案例项目展示区 结束-->
+</div>
+<script>
+    //导航切换
+    var $left=$(".left"),
+        $right=$(".right"),
+        $l_det=$(".l_det"),
+        $r_det=$(".r_det");
+    $left.click(function () {
+        $(this).addClass("on");
+        $right.removeClass("on");
+        $l_det.show();
+        $r_det.hide();
+    })
+    $right.click(function () {
+        $(this).addClass("on");
+        $left.removeClass("on");
+        $r_det.show();
+        $l_det.hide();
+    });
+ //放大镜
+    var $cover=$(".cover"),
+        $litter=$(".litter"),
+        $litimg=$(".litimg"),
+        $lIimg=$(".li-img"),
+        $img=$lIimg.find("ul li img"),
+        $big=$(".big");
+    var LXY=$litter.offset();
+    var Lleft=LXY.left;
+    var Ltop=LXY.top;
+    var Mwidth=$litimg.width();
+    var Mheight=$litimg.height();
+    var Lwidth=$litter.width();
+    var Lheight=$litter.height();
+
+    var lx=(Lwidth-120-Mwidth)/2,
+        ly=(Lheight-120-Mheight)/2;
+
+    $litter.mouseover(function (e) {
+        e=e||window.event;
+        $big.show();
+        $cover.show();
+        var sx=e.pageX;
+        var sy=e.pageY;
+        var Cleft=sx-Lleft-ly-120;
+        var Ctop=sy-Ltop-ly-120;
+        Scale(Cleft,Ctop);
+        document.onmousemove=function (e) {
+            e=e||window.event;
+            sx=e.pageX;
+            sy=e.pageY;
+            Cleft=sx-Lleft-ly-120;
+            Ctop=sy-Ltop-ly-120;
+            Scale(Cleft,Ctop);
+            var cXY=$cover.position();
+            var bleft= cXY.left*900/300,
+                btop=cXY.top*900/300;
+            $big.css({
+                "background-position":"-"+(bleft)+"px  -"+(btop)+"px"
+            });
+
+        };
+    });
+    $litter.mouseout(function () {
+        $cover.hide();
+        $big.hide();
+        document.onmousemove=null;
+        $cover.mouseout=null;
+    });
+
+    $img.mouseover(function () {
+        var SRC=$(this).attr("src");
+        $litimg.attr("src",SRC);
+        $big.css("background","url("+SRC+")");
+        console.log(SRC);
+    });
+    function Scale(Cleft,Ctop) {
+        $cover.css({
+            "left":( Cleft>Mwidth-120 ? Lwidth/2+Mwidth/2-120 : Math.max(lx+60,Cleft))+"px",
+            "top":( Ctop>Mheight-120 ? Lheight/2+Mheight/2-120 : Math.max(ly+60,Ctop))+"px"
+        });
+    }
+    
+    //Tip
+    var $btnL=$(".btn-l"),
+        $btnR=$(".btn-r"),
+        $Tip=$(".Tip"),
+        $tip1=$(".Tip1"),
+        $tip2=$(".Tip2"),
+        $shut=$(".shut");
+    $btnL.click(function(){
+        $Tip.show();
+        $tip1.show();
+        $tip2.hide();
+    });
+    $btnR.click(function(){
+        $Tip.show();
+        $tip2.show();
+        $tip1.hide();
+    });
+    $shut.click(function(){
+        $Tip.hide();
+        $tip1.hide();
+        $tip2.hide();
+    })
+</script>
+</body>
+</html>
